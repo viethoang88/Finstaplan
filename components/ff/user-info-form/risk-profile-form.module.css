@@ -1,0 +1,140 @@
+/* const selectedStyles = {
+  width: "3rem",
+  height: "3rem",
+  borderRadius: "50%",
+  backgroundColor: "green",
+  borderColor: "purple 3px dotted",
+};
+const regularStyles = {
+  width: "3rem",
+  height: "3rem",
+  borderRadius: "50%",
+  backgroundColor: "lightblue",
+  borderColor: "darkgrey 3px dotted",
+}; */
+
+.option_container {
+  position: relative;
+  padding-left: 5rem;
+  padding-right: 5rem;
+  padding-top: 2rem;
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  justify-content: space-between;
+}
+.option_min,
+.option_max {
+  position: absolute;
+  top: 6.4rem;
+  font-weight: 700;
+}
+.option_min {
+  left: 4rem;
+}
+.option_max {
+  right: 3.1rem;
+}
+
+.option {
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  background-color: lightslategrey;
+  border-color: black 5px dotted;
+  cursor: pointer;
+}
+.option_selected {
+  background-color: #a07aaa;
+  border-color: #3d0264 5px solid;
+}
+
+.line_dot_one {
+  position: absolute;
+  top: 28.4rem;
+  left: 11.3rem;
+  z-index: 4001;
+}
+.line_dot_two {
+  position: absolute;
+  top: 22.55rem;
+  left: 16.5rem;
+  z-index: 4001;
+}
+.line_dot_three {
+  position: absolute;
+  top: 16.65rem;
+  left: 21.7rem;
+  z-index: 4001;
+}
+.line_dot_four {
+  position: absolute;
+  top: 10.8rem;
+  left: 26.9rem;
+  z-index: 4001;
+}
+.line_dot_five {
+  position: absolute;
+  top: 4.95rem;
+  left: 32.15rem;
+  z-index: 4001;
+}
+
+.chart_x_axis {
+  position: absolute;
+  bottom: 1rem;
+  left: 18.2rem;
+  font-weight: 700;
+  color: darkred;
+}
+.chart_y_axis {
+  position: absolute;
+  left: 1.6rem;
+  top: 19.95rem;
+  font-weight: 700;
+  color: green;
+}
+
+.line_two_dot_zero {
+  position: absolute;
+  top: 29.15rem;
+  left: 10.45rem;
+  z-index: 4001;
+}
+
+.line_two_dot_one {
+  position: absolute;
+  top: 25.98rem;
+  left: 14.75rem;
+  z-index: 4001;
+}
+.line_two_dot_two {
+  position: absolute;
+  top: 24.75rem;
+  left: 19.15rem;
+  z-index: 4001;
+}
+
+.line_two_dot_three {
+  position: absolute;
+  top: 23.59rem;
+  left: 23.45rem;
+  z-index: 4001;
+}
+.line_two_dot_four {
+  position: absolute;
+  top: 23.05rem;
+  left: 27.8rem;
+  z-index: 4001;
+}
+.line_two_dot_five {
+  position: absolute;
+  top: 22.4rem;
+  left: 32.15rem;
+  z-index: 4001;
+}

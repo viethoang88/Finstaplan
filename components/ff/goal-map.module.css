@@ -1,0 +1,248 @@
+.unassigned_header {
+  margin-left: 4rem;
+  position: relative;
+  top: 0.25rem;
+  /* font-family: "Cedarville Cursive", cursive; */
+  font-family: "Just Another Hand", cursive;
+  font-size: 4.15rem;
+  padding: 0.25rem;
+  text-decoration: underline;
+}
+
+.header {
+  position: relative;
+  top: -6rem;
+  left: -6rem;
+}
+
+.header_text {
+  font-size: 3rem;
+  position: absolute;
+  top: 1.25rem;
+  left: 1rem;
+  background: rgba(244, 244, 244);
+  border-radius: 25px;
+  padding: 2rem;
+  padding-bottom: 1rem;
+  padding-top: 1rem;
+  max-width: auto;
+  font-family: "Cedarville Cursive", cursive;
+  /* font-family: "Just Another Hand", cursive; */
+  box-shadow: 12px -12px #fff, 0px 0px 20px rgba(0, 0, 0, 0.1),
+    0px 10px 20px rgba(0, 0, 0, 0.05), 0px 20px 20px rgba(0, 0, 0, 0.05),
+    0px 30px 20px rgba(0, 0, 0, 0.05);
+}
+
+.wrapper {
+  z-index: 1016;
+  position: relative;
+  top: -7rem;
+  left: -6rem;
+  display: flex;
+  justify-self: center;
+  align-self: center;
+  /* padding-left: 7rem; */
+}
+
+.goal_bin {
+  position: absolute;
+  z-index: 2000;
+  min-width: 95vw;
+  min-height: 70vh;
+}
+
+.outer {
+  /* min-width: 95vw; */
+  /* min-height: 75vh; */
+
+  /* min-width: 95vw; */
+  /* min-height: 70vh; */
+
+  width: 1590px;
+  min-width: 1590px;
+
+  height: 950px;
+  min-height: 950px;
+  border-spacing: 1rem;
+
+  border: 1.5px solid rgba(0, 0, 0, 0.35);
+  border-radius: 25%;
+  border-collapse: collapse;
+  /* border-collapse: separate; */
+
+  /* background-color: rgba(233, 230, 230, 0.904); */
+  background-color: rgb(255, 255, 255);
+  /* border: transparent solid 5rem; */
+}
+
+.outer td {
+  border: 1px solid rgba(0, 0, 0, 0.35);
+}
+
+/* .arrow_container {
+  color: green;
+  display: flex;
+  position: absolute;
+  top: 19.5rem;
+  width: 100%;
+}
+.arrow_shaft {
+  border: 1px solid green;
+  width: 75%;
+}
+
+.arrow {
+  color: green;
+  font-size: 26px;
+} */
+
+.row,
+.row_1,
+.row_2 {
+  /* border-radius: 50px; */
+  /* box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1), 0px 10px 20px rgba(0, 0, 0, 0.05),
+    0px 20px 20px rgba(0, 0, 0, 0.05), 0px 30px 20px rgba(0, 0, 0, 0.05); */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.05),
+    0px 10px 10px rgba(0, 0, 0, 0.05), 0px 15px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* header row */
+.row_1 {
+  height: 5rem;
+  font-size: 4.25rem;
+  font-family: "Just Another Hand", cursive;
+  font-weight: 100 !important;
+}
+
+.row_2 {
+  height: 2.5rem;
+  font-size: 1.5rem;
+}
+
+.row {
+  height: 12rem;
+}
+.td {
+}
+
+.td_0 {
+  max-width: 4rem;
+  width: 4rem;
+  min-width: 4rem;
+  border-radius: 35px;
+  /* font-size: 2rem;
+  font-weight: bold; */
+  text-align: center;
+  font-size: 4.25rem;
+  font-family: "Just Another Hand", cursive;
+  font-weight: 100;
+}
+
+.th_1,
+.th_1_2,
+.th_2,
+.th_3,
+.th_4 {
+  /* border-radius: 35px; */
+}
+
+.td_1,
+.td_1_2,
+.td_2,
+.td_3,
+.td_4 {
+  /* display: block; */
+  position: relative;
+  width: 15rem;
+  /* border-radius: 35px; */
+}
+.td_1,
+.td_1_2,
+.td_2,
+.td_3 {
+  height: 15rem;
+}
+
+.td_1 {
+  /* text-orientation: sideways-right; */
+  /* border-radius: 35px; */
+}
+
+/* short term */
+/* 0-2 years */
+.th_1 {
+  /* background-color: #f8f7fc;
+  background-color: #55f19ea2;
+  background: rgba(60, 175, 69, 0.75);
+  background-color: #c3c3c3ad; */
+  /* background: linear-gradient(90deg, rgba(51,255,225,0.75) 0%, rgba(0, 255,21,0.75) 100%); */
+}
+.td_1,
+.shortterm {
+  /* background-color: rgba(60, 175, 69, 0.75);
+  background-color: #c3c3c3ad; */
+}
+
+/* 2-5 years */
+.th_1_2,
+.td_1_2 {
+  /* background-color: #e7e3f6;
+  background-color: #1eff00a2; */
+  /* background-color: rgba(60, 175, 69, 0.75);
+  background-color: #c3c3c3ad; */
+  /* background: rgb(131,58,180);
+  background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(252,176,69,1) 100%);
+   */
+}
+
+.need {
+  /* background-color: #ec572aad;
+  background-color: #c3c3c3ad; */
+}
+
+.want {
+  /* background-color: #36f18da2;
+  background-color: #c3c3c3ad; */
+}
+
+/* medium term */
+.th_2,
+.td_2 {
+  /* background-color: #d0c8ed;
+  background-color: #a9ac15a2;
+  background-color: #c3c3c3ad; */
+}
+.th_3 {
+  /* background-color: #b8ace3;
+  background-color: #a9ac15a2;
+  background-color: #c3c3c3ad; */
+}
+
+/* long term */
+.td_3,
+.th_4,
+.td_4 {
+  /* background-color: #a191da; */
+  /* background-color: #1e3c9cad; */
+}
+
+/* const colors = [
+  "#f8f7fc",
+  "#e7e3f6",
+  "#d0c8ed",
+  "#b8ace3",
+  "#a191da",
+  "#8975d1",
+  "#745dc9",
+  "#5f44c1",
+  "#5239ab",
+  "#463193",
+  // "#3a297a",
+  "#f0f7f8",
+  "#cde6e7",
+  "#9bccd0",
+  "#69b3b8",
+  "#458e93",
+  "#2e5e61",
+  "#295457",
+]; */

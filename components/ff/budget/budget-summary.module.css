@@ -1,0 +1,65 @@
+.outer_container {
+  position: absolute;
+}
+
+.container {
+  z-index: 1001;
+  position: fixed;
+  float: left;
+  bottom: 0.35rem;
+  /* bottom: 15rem; */
+  left: -1.5rem;
+  /* margin: 2rem; */
+  padding: 2rem;
+  padding-right: 0.25rem;
+  width: 38rem;
+  /* width: 40rem; */
+  height: 5.25rem;
+  background-color: rgb(255, 255, 255);
+  border-radius: 9px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1), 0px 5px 10px rgba(0, 0, 0, 0.05),
+    0px 10px 10px rgba(0, 0, 0, 0.05), 0px 15px 10px rgba(0, 0, 0, 0.05);
+  opacity: 0.95;
+  font-weight: 700;
+}
+
+.bar {
+  top: -2rem;
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  flex-basis: 1;
+}
+
+.button {
+  position: absolute;
+  bottom: 0.37rem;
+  right: 0.05rem;
+}
+
+.in {
+  display: block;
+  border-left: solid #1ea97c;
+  background-color: #e4f8f0;
+  /* padding: 2rem; */
+  padding-left: 0.25rem;
+  border-radius: 5px;
+  height: 3.5rem;
+  margin-right: 0.25rem;
+}
+
+.out {
+  display: block;
+  border-left: solid #ff5757;
+  background-color: #ffe7e6;
+  /* padding: 2rem; */
+  padding-left: 0.25rem;
+  border-radius: 5px;
+  height: 3.5rem;
+}
+
+.total {
+  position: relative;
+  top: -2rem;
+}

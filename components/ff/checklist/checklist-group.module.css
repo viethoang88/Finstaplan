@@ -1,0 +1,25 @@
+.container {
+  /* margin: 3rem; */
+  width: 38%;
+  margin: 1.5rem;
+}
+
+.checkbox_item {
+}
+
+.checkboxes {
+  margin-left: 0.65rem;
+  display: flex;
+  align-self: center;
+  justify-self: center;
+  flex-direction: column;
+  border: slategray 1.2px solid;
+  border-radius: 15px;
+  padding-top: 2.1rem;
+  padding-right: 1.2rem;
+}
+.group_label {
+  text-align: center;
+  font-weight: 700;
+  margin-bottom: 0.6rem;
+}

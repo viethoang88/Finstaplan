@@ -1,0 +1,11 @@
+{
+  "AppSyncApiName": "finstaplan",
+  "DynamoDBBillingMode": "PAY_PER_REQUEST",
+  "DynamoDBEnableServerSideEncryption": false,
+  "AuthCognitoUserPoolId": {
+    "Fn::GetAtt": [
+      "authfinstaplan",
+      "Outputs.UserPoolId"
+    ]
+  }
+}

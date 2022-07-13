@@ -1,0 +1,17 @@
+{
+  "groupPermissionMap": {
+    "dealerGroup": [
+      "read"
+    ],
+    "enterprise": [
+      "create/update",
+      "read",
+      "delete"
+    ],
+    "advisor": [
+      "create/update",
+      "read",
+      "delete"
+    ]
+  }
+}

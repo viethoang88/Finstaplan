@@ -1,0 +1,49 @@
+.container {
+  width: 50vw;
+  height: 75vh;
+  margin: 7rem;
+  margin-top: 10rem;
+  overflow: scroll;
+  padding: 1.5rem;
+  position: relative;
+}
+
+.names {
+  font-weight: 700;
+  font-size: 1.3rem;
+}
+
+.step_button {
+  width: 100%;
+  display: flex;
+  align-content: flex-end;
+  justify-content: flex-end;
+  border-top: lightslategrey 2px solid;
+  padding: 2rem;
+  background-color: rgb(253, 253, 253);
+}
+
+.header_container {
+  height: 10rem;
+  background-color: rgb(253, 253, 253);
+  border-bottom: lightslategrey 2px solid;
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+  padding: 1.5rem;
+}
+.header_image {
+  max-height: 5rem;
+  max-width: auto;
+}
+
+.sig_text {
+  font-weight: 700;
+  margin: 0.7rem;
+}
+
+.sig_canvas {
+  border: 1.1px solid lightslategray;
+  margin: 0.7rem;
+  margin-bottom: 1.1rem;
+}

@@ -1,0 +1,63 @@
+.datatable-crud-demo .table-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.datatable-crud-demo .product-image {
+  width: 100px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.datatable-crud-demo .p-dialog .product-image {
+  width: 150px;
+  margin: 0 auto 2rem auto;
+  display: block;
+}
+
+.datatable-crud-demo .confirmation-content {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.modalparagraph {
+  position: relative;
+  top: 1.75rem;
+  padding-left: 2rem;
+  padding-bottom: 2rem;
+  font-weight: bold;
+}
+
+.modalicon {
+  font-size: 2.8rem;
+  position: relative;
+  top: 0.75rem;
+  /* right: 1rem; */
+  padding: 1rem;
+  color: darkred;
+}
+
+.deletemodal {
+  width: 500px;
+}
+
+.delete_modal_content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  align-content: center;
+}
+
+.toolbar_button {
+  padding: 0.5rem;
+  margin: 0.2rem;
+  width: 7.5rem;
+  font-size: 1.1rem;
+  font-weight: bold;
+  /* text-align: left; */
+}
+
+.toolbar_button_icon {
+  font-size: 1.2rem;
+}

@@ -1,0 +1,370 @@
+interface BudgetItem {
+  type: String
+  parentType: String
+  label: String
+  value: Float
+}
+
+type Expense implements BudgetItem {
+  id: String
+  type: String
+  parentType: String
+  label: String
+  value: Float
+  frequency: String
+  division: [Float]
+  notes: String
+  icon: String
+  bucket: String
+}
+type Income implements BudgetItem {
+  id: String
+  type: String
+  parentType: String
+  label: String
+  value: Float
+  frequency: String
+  division: [Float]
+  notes: String
+  icon: String
+  bucket: String
+}
+type Liability implements BudgetItem {
+  id: String
+  type: String
+  parentType: String
+  label: String
+  value: Float
+  division: [Float]
+  notes: String
+  icon: String
+  bucket: String
+}
+type Asset implements BudgetItem {
+  id: String
+  type: String
+  parentType: String
+  label: String
+  value: Float
+  division: [Float]
+  notes: String
+  icon: String
+  bucket: String
+}
+
+type Joint {
+  expenses: [Expense]
+  liabilities: [Liability]
+  assets: [Asset]
+  incomes: [Income]
+}
+
+interface Person {
+  firstName: String
+  lastName: String
+  dateOfBirth: String
+  gender: String
+  expenses: [Expense]
+  liabilities: [Liability]
+  assets: [Asset]
+  incomes: [Income]
+  healthStatus: String
+  uiData: AWSJSON
+}
+
+type Dependent implements Person {
+  firstName: String
+  lastName: String
+  dateOfBirth: String
+  gender: String
+  expenses: [Expense]
+  liabilities: [Liability]
+  assets: [Asset]
+  incomes: [Income]
+  healthStatus: String
+  uiData: AWSJSON
+  legacyNominee: Boolean
+  relatedTo: String
+  studying: Boolean
+  studyingStatus: String
+  studyingCompletionDate: String
+  legacyAmount: Float
+}
+
+type OtherAdvisor {
+  name: String
+  role: String
+  happyWith: Boolean
+  permissionToContact: Boolean
+  email: String
+  phoneNumber: String
+}
+
+type Primary implements Person {
+  firstName: String
+  lastName: String
+  dateOfBirth: String
+  gender: String
+  expenses: [Expense]
+  liabilities: [Liability]
+  assets: [Asset]
+  incomes: [Income]
+  healthStatus: String
+  relationshipStatus: String
+  employmentDetails: AWSJSON
+  contactDetails: AWSJSON
+  employed: Boolean
+  jobTitle: String
+  jobIndustry: String
+  employmentStatus: String
+  employerName: String
+  employmentStartDate: String
+  desiredRetirementAge: Int
+  email: String
+  mobile: String
+  streetAddress: String
+  streetAddress2: String
+  city: String
+  state: String
+  zipCode: String
+  existingStructures: [String]
+  existingStructuresAndAdvisors: AWSJSON
+  wants: [String]
+  whyMoney: AWSJSON
+  healthInfo: AWSJSON
+  authorities: AWSJSON
+  estatePlanning: AWSJSON
+  uiData: AWSJSON
+  preassessmentIDs: [String]
+  hasAdvisors: Boolean
+  otherAdvisors: [OtherAdvisor]
+}
+
+type Preassessment @model {
+  id: ID!
+  advisorId: ID!
+  clientId: ID!
+  advisorName: String
+  dealerGroup: String
+  clientName: String!
+  dob: String!
+  gender: String!
+  healthInfo: AWSJSON!
+  preassessmentData: AWSJSON!
+  attachments: String
+  underwriters: [PreassessmentUnderwriter!]
+    @connection(keyName: "byPreassessment", fields: ["id"])
+  underwriterIDs: [String!]
+}
+
+type PreassessmentResponse
+  @model
+  @key(fields: ["id"])
+  #@key(name: "id", fields: ["id"])
+  @key(name: "byAdvisor", fields: ["advisorID"])
+  @key(name: "byUnderwriter", fields: ["underwriterID"])
+  @key(
+    name: "byPreassessmentResponse"
+    fields: ["preassessmentID", "underwriterID"]
+  )
+  @key(
+    name: "byClientAndAdvisor"
+    fields: ["clientID", "preassessmentID", "advisorID"]
+  ) {
+  id: ID!
+  underwriterID: ID!
+  clientID: ID!
+  clientFullName: String!
+  underwriterFullName: String!
+  underwriterCompany: String!
+  advisorID: ID!
+  preassessmentID: ID!
+  underwriter: Underwriter! @connection(fields: ["underwriterID"])
+  response: AWSJSON
+  # This is only for a many-many connection:
+  #underwriter: PreassessmentResponseUnderwriterAdvisor!
+  #  @connection(keyName: "byUnderwriter", fields: ["id"])
+}
+
+type PreassessmentResponseUnderwriterAdvisor
+  @key(name: "byUnderwriter", fields: ["underwriterID", "preassessmentID"])
+  @key(name: "byPreassessment", fields: ["preassessmentID", "underwriterID"])
+  @key(name: "byAdvisor", fields: ["advisorID", "preassessmentID"])
+  @key(
+    name: "byClientAndAdvisor"
+    fields: ["clientID", "preassessmentID", "advisorID"]
+  )
+  @key(
+    name: "byId"
+    fields: ["clientID", "advisorID", "underwriterID", "preassessmentID"]
+  )
+  @model(queries: null) {
+  clientID: ID!
+  client: Client! @connection(fields: ["clientID"])
+  advisorID: ID!
+  advisor: Advisor! @connection(fields: ["advisorID"])
+  underwriterID: ID!
+  underwriter: Underwriter! @connection(fields: ["underwriterID"])
+  preassessmentID: ID!
+  preassessment: Preassessment! @connection(fields: ["preassessmentID"])
+  preasssessmentResponseID: ID!
+  preassessmentResponse: PreassessmentResponse!
+    @connection(fields: ["preasssessmentResponseID"])
+}
+
+# type PreassessmentUnderwriter
+#   @key(name: "byUnderwriter", fields: ["underwriterID", "preassessmentID"])
+#   @key(name: "byPreassessment", fields: ["preassessmentID", "underwriterID"])
+#   @key(name: "byAdvisor", fields: ["advisorID", "preassessmentID"])
+#   @key(name: "byClient", fields: ["clientID", "preassessmentID"])
+#   @key(
+#     name: "byId"
+#     fields: ["clientID", "advisorID", "underwriterID", "preassessmentID"]
+#   )
+#   #@auth(rules: [{ allow: owner, ownerField: "advisorID" }])
+#   @model(queries: null) {
+#   clientID: ID!
+#   client: Client! @connection(fields: ["clientID"])
+#   advisorID: ID!
+#   advisor: Advisor! @connection(fields: ["advisorID"])
+#   underwriterID: ID!
+#   underwriter: Underwriter! @connection(fields: ["underwriterID"])
+#   preassessmentID: ID!
+#   preassessment: Preassessment! @connection(fields: ["preassessmentID"])
+# }
+type PreassessmentUnderwriter
+  @key(name: "byUnderwriter", fields: ["underwriterID", "preassessmentID"])
+  @key(name: "byPreassessment", fields: ["preassessmentID", "underwriterID"])
+  @model(queries: null) {
+  clientID: ID!
+  advisorID: ID!
+  underwriterID: ID!
+  underwriter: Underwriter! @connection(fields: ["underwriterID"])
+  preassessmentID: ID!
+  preassessment: Preassessment! @connection(fields: ["preassessmentID"])
+}
+
+type Underwriter
+  @key(fields: ["id"])
+  @key(name: "byEmail", fields: ["email"])
+  #@auth(rules: [{ allow: groups, groups: ["Admin"] }])
+  @model {
+  id: ID!
+  email: String!
+  password: String
+  firstName: String
+  lastName: String
+  employerName: String
+  businessNumber: String
+  mobile: String
+  phone: String
+  status: String
+  preassessments: [PreassessmentUnderwriter]
+    @connection(keyName: "byUnderwriter", fields: ["id"])
+  preassessmentResponses: [PreassessmentResponseUnderwriterAdvisor]
+    @connection(keyName: "byUnderwriter", fields: ["id"])
+
+  # All fields provided to an @connection must be scalar or enum fields:
+  #preassessmentIDs: [ID]
+  #preassessments: [Preassessment] @connection(fields: ["preassessmentIDs"])
+}
+
+type Profile {
+  email: String
+  mobile: String
+  phone: String
+  firstName: String
+  lastName: String
+  logo: String
+  profilePicture: String
+  addressOne: String
+  addressTwo: String
+  city: String
+  state: String
+  country: String
+  currency: String
+  employerName: String
+  businessNumber: String
+  dealerGroup: String
+  dealerGroupNumber: String
+}
+
+type Advisor @auth(rules: [{ allow: owner, ownerField: "id" }]) @model {
+  id: ID!
+  clients: [AdvisorClient] @connection(keyName: "byId", fields: ["id"])
+  advisorProfile: Profile
+  assumptions: AWSJSON
+  philosophies: AWSJSON
+  portfolios: AWSJSON
+  licenseeAllocations: AWSJSON
+  fixedBands: AWSJSON
+  benchmarkingProfile: AWSJSON
+  benchmarkingWeightings: AWSJSON
+  underwriters: AWSJSON
+  funds: AWSJSON
+}
+
+type AdvisorClient
+  @key(name: "byId", fields: ["clientID", "advisorID"])
+  @auth(rules: [{ allow: owner, ownerField: "advisorID" }])
+  @model(queries: null) {
+  clientID: ID!
+  client: Client! @connection(fields: ["clientID"])
+  advisorID: ID!
+  advisor: Advisor! @connection(fields: ["advisorID"])
+}
+
+type Client @auth(rules: [{ allow: owner, ownerField: "advisorID" }]) @model {
+  id: ID!
+  advisorID: ID!
+  advisor: Advisor @connection(fields: ["advisorID"])
+  hasPartner: Boolean
+  hasDependents: Boolean
+  hasChildren: Boolean
+  hasJointDependents: Boolean
+  hasPartnerDependents: Boolean
+  goals: AWSJSON
+  values: AWSJSON
+  insuranceInfo: AWSJSON
+  riskProfile: AWSJSON
+  riskProfileScores: AWSJSON
+  primary: Primary
+  partner: Primary
+  joint: Joint
+  advisors: AWSJSON
+  children: [Dependent]
+  dependents: [Dependent]
+  partnerDependents: [Dependent]
+  jointDependents: [Dependent]
+  authoritiesData: AWSJSON
+  healthInfo: AWSJSON
+  existingStructureDetails: AWSJSON
+  existingStructures: AWSJSON
+}
+
+# type DealerGroup
+#   @model
+#    id: ID!
+#    enterprises: [EnterpriseAdmin]
+
+# type EnterpriseAdmin
+#  @model
+#   id: ID!
+
+# type Task
+#   @model
+#   @auth(
+#     rules: [
+#       { allow: groups, groups: ["Managers"], queries: null, mutations: [create, update, delete] }
+#       { allow: groups, groups: ["Employees"], queries: [get, list], mutations: null }
+#     ]
+#   ) {
+#   id: ID!
+#   title: String!
+#   description: String
+#   status: String
+# }
+# type PrivateNote @model @auth(rules: [{ allow: owner }]) {
+#   id: ID!
+#   content: String!
+# }

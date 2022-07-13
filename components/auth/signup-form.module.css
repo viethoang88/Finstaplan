@@ -1,0 +1,80 @@
+.error_hidden {
+  opacity: 0;
+  /* position: absolute; */
+  position: absolute;
+  top: -3rem;
+  transition: all ease-in-out 0.35s;
+}
+.error {
+  opacity: 1;
+  position: relative;
+  top: -2rem;
+  color: darkred;
+  font-weight: bold;
+  display: flex;
+  flex-wrap: wrap;
+  /* align-self: center; */
+  /* justify-self: center; */
+  min-width: 100%;
+  transition: all ease-in-out 0.35s;
+  max-width: 21rem;
+}
+
+.header_text {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.card {
+  padding: 8rem;
+}
+.field {
+  margin-bottom: 3rem;
+}
+.checkbox {
+  margin-right: 0.75rem;
+}
+.form .card {
+  min-width: 450px;
+}
+.form .card form {
+  margin-top: 2rem;
+}
+.form .card .p-field {
+  margin-bottom: 1.5rem;
+}
+
+.container {
+  z-index: 1001;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginform {
+  position: absolute;
+  z-index: 1002;
+  padding: 0rem;
+  margin: 2rem;
+  min-width: 35vw !important;
+  width: 35vw;
+}
+
+.button {
+  margin-bottom: 2rem;
+  margin-top: 0rem;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 1360px) {
+  .loginform {
+    width: 65vw;
+  }
+}
+@media screen and (max-width: 940px) {
+  .loginform {
+    width: 75vw;
+  }
+}

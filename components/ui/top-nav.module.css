@@ -1,0 +1,28 @@
+.container {
+  /* margin-left: 20rem; */
+  padding: 0.5rem;
+  padding-left: 2rem;
+  /* position: absolute; */
+  position: relative;
+  top: 0.25rem;
+  right: 0.25rem;
+  padding-bottom: 1rem;
+}
+
+.left {
+  display: flex;
+  flex-direction: row;
+}
+.search {
+  padding-left: 3.5rem;
+  margin-top: 0.3rem;
+  width: 8.5rem;
+  opacity: 0.95;
+  /* height: 7rem; */
+}
+
+.search_icon {
+  position: relative;
+  left: 1.15rem !important;
+  top: 0.05rem;
+}

@@ -1,0 +1,89 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  /* align-items: center; */
+  align-content: space-between;
+  /* justify-content: center; */
+  justify-items: space-between;
+  align-content: center;
+  justify-content: space-between;
+  position: relative;
+  min-width: 100vw;
+  max-width: 100vw;
+  height: 95vh;
+  padding: 0;
+  margin: 0;
+}
+
+.chart_container {
+  display: flex;
+  /* align-self: flex-start; */
+  margin-top: 8rem;
+  /* position: absolute; */
+  /* z-index: 3000; */
+  /* margin-left: 44vw; */
+  align-self: center;
+  justify-self: center;
+  /* top: 8rem; */
+  /* width: 100rem; */
+}
+
+.incoming {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  justify-self: flex-start;
+  align-self: flex-start;
+  /* margin-left: 2rem; */
+  /* position: relative;
+  left: 1rem;  */
+}
+
+.outgoing {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  margin-right: 1.6rem;
+  /* justify-self: flex-end; */
+  /* align-self: flex-end; */
+  /* position: relative; */
+  /* right: 2rem; */
+}
+
+.joint {
+  /* justify-self: flex-start; */
+  /* align-self: flex-start; */
+  /* position: relative; */
+  /* bottom: 2rem; */
+}
+
+.people {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  /* position: absolute; */
+  /* align-self: center;
+  justify-self: center; */
+  z-index: 1000;
+  /* max-height: 75vh; */
+  /* align-self: center; */
+  /* justify-self: center; */
+  user-select: none;
+  /* margin-left: 48.45vw; */
+  /* justify-self: flex-end; */
+}
+.ui_people {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: center;
+}
+.joint_itemtree {
+  display: flex;
+  flex-direction: row;
+  align-self: center;
+  justify-self: center;
+}

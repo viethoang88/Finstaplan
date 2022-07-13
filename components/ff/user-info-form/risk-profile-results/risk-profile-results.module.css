@@ -1,0 +1,26 @@
+.pie_container {
+  position: relative;
+}
+/* .pie {
+  position: absolute;
+  top: -38.5vh;
+  left: 55vw;
+} */
+/* .score_container {
+  display: flex;
+  flex-direction: row;
+} */
+.pie_outer {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  justify-content: space-around;
+}
+
+.pie_header {
+  text-align: center;
+  font-weight: bold;
+  position: relative;
+  top: 5rem;
+  font-size: 150%;
+}

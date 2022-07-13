@@ -1,0 +1,90 @@
+export const income = [
+  {
+    key: "0",
+    label: "Personal",
+    data: "personalIncome",
+    icon: "pi pi-fw pi-user",
+    selectable: false,
+    children: [
+      {
+        key: "0-0",
+        label: "Salary & Overtime",
+        data: "salaryIncome",
+        icon: "pi pi-fw pi-briefcase",
+        parentType: "personalIncome",
+      },
+      {
+        key: "0-1",
+        label: "Bonus",
+        data: "bonusIncome",
+        icon: "pi pi-fw pi-calendar-plus", // pi-plus-circle
+        parentType: "personalIncome",
+      },
+      {
+        key: "0-2",
+        label: "Commission",
+        data: "commissionIncome",
+        icon: "pi pi-fw pi-percentage",
+        parentType: "personalIncome",
+      },
+      {
+        key: "0-3",
+        label: "Government Pensions & Allowances",
+        data: "pensionIncome",
+        icon: "pi pi-fw pi-envelope",
+        parentType: "personalIncome",
+      },
+      // {
+      //   key: "0-4",
+      //   label: "Superannuation",
+      //   data: "superIncome",
+      //   icon: "pi pi-fw pi-envelope",
+      //   parentType: "personalIncome",
+      // },
+      {
+        key: "0-5",
+        label: "Social Security",
+        data: "socialSecurity",
+        icon: "pi pi-fw pi-envelope",
+        parentType: "personalIncome",
+      },
+      {
+        key: "0-6",
+        label: "Other income (child support, gifts, etc)",
+        data: "otherIncome",
+        icon: "pi pi-fw pi-dollar",
+        parentType: "personalIncome",
+      },
+    ],
+  },
+  {
+    key: "1",
+    label: "Investment",
+    data: "investmentIncome",
+    icon: "pi pi-fw pi-chart-line",
+    selectable: false,
+    children: [
+      {
+        key: "1-0",
+        label: "Rental income",
+        icon: "pi pi-fw pi-angle-double-up",
+        data: "investmentPropertyIncome",
+        parentType: "investmentIncome",
+      },
+      {
+        key: "1-1",
+        label: "Investment income (interest, dividends)",
+        icon: "pi pi-fw pi-angle-double-up",
+        data: "investmentIncome",
+        parentType: "investmentIncome",
+      },
+      {
+        key: "1-3",
+        label: "Other",
+        icon: "pi pi-fw pi-angle-double-up",
+        data: "otherInvestmentIncome",
+        parentType: "investmentIncome",
+      },
+    ],
+  },
+];

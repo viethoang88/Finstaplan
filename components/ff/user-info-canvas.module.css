@@ -1,0 +1,64 @@
+.container {
+  position: relative;
+  min-height: 65vh;
+  max-height: 65vh;
+  min-width: 100vw;
+  /* overflow: hidden; */
+  z-index: 100;
+}
+
+.active_user_info_menu {
+  position: relative;
+  top: -6rem;
+}
+
+.active_user_info_menu_other {
+  position: absolute;
+  right: 5rem;
+  top: 18rem;
+  /* color: rgba(224, 103, 103, 0.90);
+  color: rgba(102, 226, 102, 0.90); */
+}
+
+.user_info_button {
+  position: absolute;
+  right: 3rem;
+  top: 1rem;
+  float: right;
+  z-index: 1001;
+}
+
+.nodes_container {
+  min-height: 75vh;
+  min-width: 75vw;
+  z-index: 1001;
+  user-select: none !important;
+}
+
+.tree_boxes {
+  z-index: 1200 !important;
+  width: 100vw;
+  height: 95vh;
+  position: relative;
+  top: 5rem;
+  left: 0.25%;
+}
+
+.boxes {
+  z-index: 1001;
+  position: relative;
+  bottom: -15.6rem;
+  left: 2%;
+  /* display: inline-block; */
+  /* min-width: 33vw; */
+  /* max-width: 40vw; */
+  display: flex;
+  flex-direction: row;
+}
+
+.house {
+  position: relative;
+  bottom: -11rem;
+  left: 60%;
+  z-index: 10;
+}

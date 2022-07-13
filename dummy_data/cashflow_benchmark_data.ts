@@ -1,0 +1,71 @@
+const clientCashflowData = {
+  spouse: true,
+  income: {
+    benchmark: 800000,
+    actual: 690000,
+    forecast: 501000,
+    benchmarkSpouse: 200000,
+    actualSpouse: 200000,
+    forecastSpouse: 22000,
+  },
+  tax: {
+    benchmark: 192307,
+    actual: 192000,
+    forecast: 198000,
+    benchmarkSpouse: 1230,
+    actualSpouse: 10000,
+    forecastSpouse: 10000,
+  },
+  savings: {
+    super: {
+      benchmark: 20000,
+      actual: 1000,
+      forecast: 25000,
+      benchmarkSpouse: 123,
+      actualSpouse: 10000,
+      forecastSpouse: 10000,
+    },
+    investments: {
+      benchmark: 30000,
+      actual: 30000,
+      forecast: 25000,
+      benchmarkSpouse: 123,
+      actualSpouse: 10000,
+      forecastSpouse: 10000,
+    },
+    offset: {
+      benchmark: 100000,
+      actual: 100000,
+      forecast: 20000,
+      benchmarkSpouse: 1213,
+      actualSpouse: 10000,
+      forecastSpouse: 10000,
+    },
+  },
+  livingCosts: {
+    benchmark: 97000,
+    actual: 80000,
+    forecast: 90000,
+    benchmarkSpouse: 12313,
+    actualSpouse: 10000,
+    forecastSpouse: 10000,
+  },
+  capitalCosts: {
+    benchmark: 15000,
+    actual: 0,
+    forecast: 0,
+    benchmarkSpouse: 313,
+    actualSpouse: 10000,
+    forecastSpouse: 10000,
+  },
+  debt: {
+    benchmark: 500000,
+    actual: 0,
+    forecast: 560000,
+    benchmarkSpouse: 13,
+    actualSpouse: 10000,
+    forecastSpouse: 10000,
+  },
+};
+
+module.exports = clientCashflowData;

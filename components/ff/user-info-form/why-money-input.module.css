@@ -1,0 +1,63 @@
+.iconwrapper {
+  position: relative;
+  padding: 0 30px;
+  /* display: flex; */
+  /* flex-direction: column; */
+}
+.question {
+  font-size: 1.25rem;
+  /* padding: 1rem; */
+}
+.iconwrapper .anticon {
+  position: absolute;
+  top: -2px;
+  width: 16px;
+  height: 16px;
+  color: rgba(0, 0, 0, 0.25);
+  font-size: 16px;
+  line-height: 1;
+}
+
+.iconwrapper .iconwrapperactive {
+  color: rgba(0, 0, 0, 0.45);
+}
+
+.iconwrapper .anticon:first-child {
+  left: 0;
+}
+
+.iconwrapper .anticon:last-child {
+  right: 0;
+}
+[data-theme="dark"] .iconwrapper .anticon {
+  color: rgba(255, 255, 255, 0.25);
+}
+[data-theme="dark"] .iconwrapper .iconwrapperactive {
+  color: rgba(255, 255, 255, 0.45);
+}
+
+.add_option {
+  /* display: flex;
+  flex-direction: row; */
+  width: 50rem;
+  /* align-items: space-between;
+  justify-content: space-between; */
+  padding-top: 3.5rem;
+  position: relative;
+}
+.add_option_text {
+  width: 70%;
+}
+.add_option_label {
+  font-size: 125%;
+  font-weight: bold;
+  position: absolute;
+  top: 1.2rem;
+  margin-right: 1rem;
+}
+
+.add_option_button {
+  margin-left: 0.45rem;
+  position: relative;
+  top: -0.2rem;
+}

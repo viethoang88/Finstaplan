@@ -1,0 +1,14 @@
+[
+  {
+    "groupName": "dealerGroup",
+    "precedence": 1
+  },
+  {
+    "groupName": "enterprise",
+    "precedence": 2
+  },
+  {
+    "groupName": "advisor",
+    "precedence": 3
+  }
+]

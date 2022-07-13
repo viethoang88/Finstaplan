@@ -1,0 +1,44 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-finstaplan-dev-181606-authRole",
+      "UnauthRoleArn": "arn:aws:iam::550390192310:role/amplify-finstaplan-dev-181606-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::550390192310:role/amplify-finstaplan-dev-181606-authRole",
+      "Region": "us-east-1",
+      "DeploymentBucketName": "amplify-finstaplan-dev-181606-deployment",
+      "UnauthRoleName": "amplify-finstaplan-dev-181606-unauthRole",
+      "StackName": "amplify-finstaplan-dev-181606",
+      "StackId": "arn:aws:cloudformation:us-east-1:550390192310:stack/amplify-finstaplan-dev-181606/46ef5d70-cf44-11eb-83e6-123f2d95f4cf",
+      "AmplifyAppId": "d2xbtd5ogk5taw"
+    },
+    "categories": {
+      "hosting": {
+        "amplifyhosting": {
+          "appId": "d2xbtd5ogk5taw",
+          "type": "cicd"
+        }
+      },
+      "function": {
+        "finstaplanCustomMessage": {
+          "REDIRECTURL": "http://localhost:3000/auth/{clientId}",
+          "EMAILSUBJECT": "",
+          "EMAILMESSAGE": "",
+          "deploymentBucketName": "amplify-finstaplan-dev-181606-deployment",
+          "s3Key": "amplify-builds/finstaplanCustomMessage-6e66516a34756b455063-build.zip"
+        },
+        "finstaplanPostConfirmation": {
+          "GROUP": "advisors",
+          "deploymentBucketName": "amplify-finstaplan-dev-181606-deployment",
+          "s3Key": "amplify-builds/finstaplanPostConfirmation-4c776676557542545332-build.zip"
+        },
+        "AdminQueriesc8adb1da": {
+          "deploymentBucketName": "amplify-finstaplan-dev-181606-deployment",
+          "s3Key": "amplify-builds/AdminQueriesc8adb1da-335456466344594c5368-build.zip"
+        }
+      },
+      "auth": {
+        "finstaplan": {}
+      }
+    }
+  }
+}

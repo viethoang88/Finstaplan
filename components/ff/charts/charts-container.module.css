@@ -1,0 +1,15 @@
+.container {
+  vertical-align: middle;
+  margin: 0 0.5rem;
+  line-height: 1.5;
+  min-width: 29vw;
+  max-width: 38vw;
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  z-index: 2502;
+}
+.container_tab {
+  position: relative;
+  width: 100%;
+}

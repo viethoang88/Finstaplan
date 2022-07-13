@@ -1,0 +1,24 @@
+.container {
+  z-index: 1001;
+  position: absolute;
+  left: 1rem;
+  top: 7.5rem;
+  height: 55vh;
+  min-width: 35vw;
+  max-width: 45vw;
+}
+
+.buttons {
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+.header {
+}
+
+.card {
+  background: rgba(255, 255, 255, 0.75) !important;
+  border-radius: 50px !important;
+}

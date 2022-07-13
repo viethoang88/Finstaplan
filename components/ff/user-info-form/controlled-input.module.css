@@ -1,0 +1,28 @@
+.errormessage {
+  /* display: flex;
+  justify-content: flex-end;
+  align-items: flex-end; */
+  position: relative;
+  /* top: -5rem;
+  left: -5rem; */
+  top: 0.5rem;
+  background-color: darkred;
+  color: white;
+  font-weight: bold;
+  border-radius: 25px;
+  text-align: center;
+  padding: 1rem;
+}
+
+.errorinput {
+  /* background-color: darkgrey;
+  border-radius: 25px; */
+}
+
+.input {
+  padding: 1rem;
+}
+
+.inputtext {
+  max-height: 31px;
+}

@@ -1,0 +1,32 @@
+.input {
+  display: flex;
+  flex-direction: row;
+  align-items: space-around;
+  justify-content: center;
+  padding: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.inputgroup {
+  padding: 0rem;
+}
+
+.dateinput {
+}
+
+.inputcontainer {
+  position: relative;
+}
+
+.inputlabel {
+  position: relative;
+  /* top: -2rem; */
+  /* top:   */
+  /* left: 20px; */
+  /* top: 10px; */
+  font-weight: 700;
+  padding: 1rem;
+}
+.longinputlabel {
+  min-width: 18rem;
+}

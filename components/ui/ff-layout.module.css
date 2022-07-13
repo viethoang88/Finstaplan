@@ -1,0 +1,12 @@
+.container {
+  width: 100vw;
+  /* padding: 2rem; */
+  /* margin: 2rem; */
+}
+
+.visible_form {
+  opacity: 1;
+}
+.invisible_form {
+  opacity: 0;
+}
