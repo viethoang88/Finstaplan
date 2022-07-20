@@ -152,8 +152,7 @@ type Preassessment @model {
   healthInfo: AWSJSON!
   preassessmentData: AWSJSON!
   attachments: String
-  underwriters: [PreassessmentUnderwriter!]
-    @hasMany(keyName: "byPreassessment", fields: ["id"])
+  underwriters: [PreassessmentUnderwriter!] @hasMany(indexName: "byPreassessment", fields: ["id"])
   underwriterIDs: [String!]
 }
 
@@ -210,9 +209,9 @@ type Underwriter
   phone: String
   status: String
   preassessments: [PreassessmentUnderwriter]
-    @hasMany(keyName: "byUnderwriter", fields: ["id"])
+    @hasMany(indexName: "byUnderwriter", fields: ["id"])
   preassessmentResponses: [PreassessmentResponseUnderwriterAdvisor]
-    @hasMany(keyName: "byUnderwriter", fields: ["id"])
+    @hasMany(indexName: "byUnderwriter", fields: ["id"])
 
   # All fields provided to an @connection must be scalar or enum fields:
   #preassessmentIDs: [ID]
@@ -241,7 +240,7 @@ type Profile {
 
 type Advisor @model @auth(rules: [{ allow: owner, ownerField: "id" }]) {
   id: ID!
-  clients: [AdvisorClient] @hasMany(keyName: "byId", fields: ["id"])
+  clients: [AdvisorClient] @hasMany(indexName: "byId", fields: ["id"])
   advisorProfile: Profile
   assumptions: AWSJSON
   philosophies: AWSJSON
