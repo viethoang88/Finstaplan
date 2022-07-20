@@ -153,104 +153,54 @@ type Preassessment @model {
   preassessmentData: AWSJSON!
   attachments: String
   underwriters: [PreassessmentUnderwriter!]
-    @connection(keyName: "byPreassessment", fields: ["id"])
+    @hasMany(keyName: "byPreassessment", fields: ["id"])
   underwriterIDs: [String!]
 }
 
-type PreassessmentResponse
-  @model
-  @key(fields: ["id"])
-  #@key(name: "id", fields: ["id"])
-  @key(name: "byAdvisor", fields: ["advisorID"])
-  @key(name: "byUnderwriter", fields: ["underwriterID"])
-  @key(
-    name: "byPreassessmentResponse"
-    fields: ["preassessmentID", "underwriterID"]
-  )
-  @key(
-    name: "byClientAndAdvisor"
-    fields: ["clientID", "preassessmentID", "advisorID"]
-  ) {
-  id: ID!
-  underwriterID: ID!
-  clientID: ID!
+type PreassessmentResponse @model {
+  id: ID! @primaryKey
+  underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["underwriterID"])
+  clientID: ID! @index(name: "byClientAndAdvisor", sortKeyFields: ["clientID", "preassessmentID", "advisorID"])
   clientFullName: String!
   underwriterFullName: String!
   underwriterCompany: String!
-  advisorID: ID!
-  preassessmentID: ID!
-  underwriter: Underwriter! @connection(fields: ["underwriterID"])
+  advisorID: ID! @index(name: "byAdvisor", sortKeyFields: ["advisorID"])
+  preassessmentID: ID! @index(name: "byPreassessmentResponse", sortKeyFields: ["preassessmentID", "underwriterID"])
+  underwriter: Underwriter! @hasOne(fields: ["underwriterID"])
   response: AWSJSON
   # This is only for a many-many connection:
   #underwriter: PreassessmentResponseUnderwriterAdvisor!
   #  @connection(keyName: "byUnderwriter", fields: ["id"])
 }
 
-type PreassessmentResponseUnderwriterAdvisor
-  @key(name: "byUnderwriter", fields: ["underwriterID", "preassessmentID"])
-  @key(name: "byPreassessment", fields: ["preassessmentID", "underwriterID"])
-  @key(name: "byAdvisor", fields: ["advisorID", "preassessmentID"])
-  @key(
-    name: "byClientAndAdvisor"
-    fields: ["clientID", "preassessmentID", "advisorID"]
-  )
-  @key(
-    name: "byId"
-    fields: ["clientID", "advisorID", "underwriterID", "preassessmentID"]
-  )
-  @model(queries: null) {
-  clientID: ID!
-  client: Client! @connection(fields: ["clientID"])
-  advisorID: ID!
-  advisor: Advisor! @connection(fields: ["advisorID"])
-  underwriterID: ID!
-  underwriter: Underwriter! @connection(fields: ["underwriterID"])
-  preassessmentID: ID!
-  preassessment: Preassessment! @connection(fields: ["preassessmentID"])
+type PreassessmentResponseUnderwriterAdvisor @model(queries: null) {
+  clientID: ID! @index(name: "byClientAndAdvisor", sortKeyFields: ["clientID", "preassessmentID", "advisorID"]) @index(name: "byId", sortKeyFields: ["clientID", "advisorID", "underwriterID", "preassessmentID"])
+  client: Client! @hasOne(fields: ["clientID"])
+  advisorID: ID! @index(name: "byAdvisor", sortKeyFields: ["advisorID", "preassessmentID"])
+  advisor: Advisor! @hasOne(fields: ["advisorID"])
+  underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["underwriterID", "preassessmentID"])
+  underwriter: Underwriter! @hasOne(fields: ["underwriterID"]) 
+  preassessmentID: ID! @index(name: "byPreassessment", sortKeyFields: ["preassessmentID", "underwriterID"])
+  preassessment: Preassessment! @hasOne(fields: ["preassessmentID"])
   preasssessmentResponseID: ID!
   preassessmentResponse: PreassessmentResponse!
-    @connection(fields: ["preasssessmentResponseID"])
+    @hasOne(fields: ["preasssessmentResponseID"])
 }
 
-# type PreassessmentUnderwriter
-#   @key(name: "byUnderwriter", fields: ["underwriterID", "preassessmentID"])
-#   @key(name: "byPreassessment", fields: ["preassessmentID", "underwriterID"])
-#   @key(name: "byAdvisor", fields: ["advisorID", "preassessmentID"])
-#   @key(name: "byClient", fields: ["clientID", "preassessmentID"])
-#   @key(
-#     name: "byId"
-#     fields: ["clientID", "advisorID", "underwriterID", "preassessmentID"]
-#   )
-#   #@auth(rules: [{ allow: owner, ownerField: "advisorID" }])
-#   @model(queries: null) {
-#   clientID: ID!
-#   client: Client! @connection(fields: ["clientID"])
-#   advisorID: ID!
-#   advisor: Advisor! @connection(fields: ["advisorID"])
-#   underwriterID: ID!
-#   underwriter: Underwriter! @connection(fields: ["underwriterID"])
-#   preassessmentID: ID!
-#   preassessment: Preassessment! @connection(fields: ["preassessmentID"])
-# }
-type PreassessmentUnderwriter
-  @key(name: "byUnderwriter", fields: ["underwriterID", "preassessmentID"])
-  @key(name: "byPreassessment", fields: ["preassessmentID", "underwriterID"])
-  @model(queries: null) {
+type PreassessmentUnderwriter @model(queries: null) {
   clientID: ID!
   advisorID: ID!
-  underwriterID: ID!
-  underwriter: Underwriter! @connection(fields: ["underwriterID"])
-  preassessmentID: ID!
-  preassessment: Preassessment! @connection(fields: ["preassessmentID"])
+  underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["underwriterID", "preassessmentID"])
+  underwriter: Underwriter! @hasOne(fields: ["underwriterID"])
+  preassessmentID: ID! @index(name: "byPreassessment", fields: ["preassessmentID", "underwriterID"])
+  preassessment: Preassessment! @hasOne(fields: ["preassessmentID"])
 }
 
 type Underwriter
-  @key(fields: ["id"])
-  @key(name: "byEmail", fields: ["email"])
   #@auth(rules: [{ allow: groups, groups: ["Admin"] }])
   @model {
-  id: ID!
-  email: String!
+  id: ID! @primaryKey
+  email: String! @index(name: "byEmail", sortKeyFields: ["email"])
   password: String
   firstName: String
   lastName: String
@@ -260,9 +210,9 @@ type Underwriter
   phone: String
   status: String
   preassessments: [PreassessmentUnderwriter]
-    @connection(keyName: "byUnderwriter", fields: ["id"])
+    @hasMany(keyName: "byUnderwriter", fields: ["id"])
   preassessmentResponses: [PreassessmentResponseUnderwriterAdvisor]
-    @connection(keyName: "byUnderwriter", fields: ["id"])
+    @hasMany(keyName: "byUnderwriter", fields: ["id"])
 
   # All fields provided to an @connection must be scalar or enum fields:
   #preassessmentIDs: [ID]
@@ -289,9 +239,9 @@ type Profile {
   dealerGroupNumber: String
 }
 
-type Advisor @auth(rules: [{ allow: owner, ownerField: "id" }]) @model {
+type Advisor @model @auth(rules: [{ allow: owner, ownerField: "id" }]) {
   id: ID!
-  clients: [AdvisorClient] @connection(keyName: "byId", fields: ["id"])
+  clients: [AdvisorClient] @hasMany(keyName: "byId", fields: ["id"])
   advisorProfile: Profile
   assumptions: AWSJSON
   philosophies: AWSJSON
@@ -304,20 +254,17 @@ type Advisor @auth(rules: [{ allow: owner, ownerField: "id" }]) @model {
   funds: AWSJSON
 }
 
-type AdvisorClient
-  @key(name: "byId", fields: ["clientID", "advisorID"])
-  @auth(rules: [{ allow: owner, ownerField: "advisorID" }])
-  @model(queries: null) {
-  clientID: ID!
-  client: Client! @connection(fields: ["clientID"])
+type AdvisorClient @model(queries: null) @auth(rules: [{ allow: owner, ownerField: "advisorID" }]) {
+  clientID: ID! @index(name: "byId", sortKeyFields: ["clientID", "advisorID"])
+  client: Client! @hasOne(fields: ["clientID"])
   advisorID: ID!
-  advisor: Advisor! @connection(fields: ["advisorID"])
+  advisor: Advisor! @hasOne(fields: ["advisorID"])
 }
 
-type Client @auth(rules: [{ allow: owner, ownerField: "advisorID" }]) @model {
+type Client @model @auth(rules: [{ allow: owner, ownerField: "advisorID" }]) {
   id: ID!
   advisorID: ID!
-  advisor: Advisor @connection(fields: ["advisorID"])
+  advisor: Advisor @hasOne(fields: ["advisorID"])
   hasPartner: Boolean
   hasDependents: Boolean
   hasChildren: Boolean

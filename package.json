@@ -42,7 +42,7 @@
     "@nivo/generators": "^0.70.0",
     "@nivo/line": "^0.70.1",
     "@nivo/pie": "^0.70.1",
-    "@react-pdf/renderer": "^2.0.19",
+    "@react-pdf/renderer": "^2.3.0",
     "@reduxjs/toolkit": "^1.5.1",
     "@visx/visx": "^2.12.1",
     "antd": "^4.21.7",
