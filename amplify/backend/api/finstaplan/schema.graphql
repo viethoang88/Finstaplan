@@ -191,7 +191,7 @@ type PreassessmentUnderwriter @model(queries: null) {
   advisorID: ID!
   underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["underwriterID", "preassessmentID"])
   underwriter: Underwriter! @hasOne(fields: ["underwriterID"])
-  preassessmentID: ID! @index(name: "byPreassessment", fields: ["preassessmentID", "underwriterID"])
+  preassessmentID: ID! @index(name: "byPreassessment", sortKeyFields: ["preassessmentID", "underwriterID"])
   preassessment: Preassessment! @hasOne(fields: ["preassessmentID"])
 }
 
