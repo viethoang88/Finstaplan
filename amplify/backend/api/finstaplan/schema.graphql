@@ -158,13 +158,13 @@ type Preassessment @model {
 
 type PreassessmentResponse @model {
   id: ID! @primaryKey
-  underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["underwriterID"])
-  clientID: ID! @index(name: "byClientAndAdvisor", sortKeyFields: ["clientID", "preassessmentID", "advisorID"])
+  underwriterID: ID! @index(name: "byUnderwriter")
+  clientID: ID! @index(name: "byClientAndAdvisor", sortKeyFields: ["preassessmentID", "advisorID"])
   clientFullName: String!
   underwriterFullName: String!
   underwriterCompany: String!
-  advisorID: ID! @index(name: "byAdvisor", sortKeyFields: ["advisorID"])
-  preassessmentID: ID! @index(name: "byPreassessmentResponse", sortKeyFields: ["preassessmentID", "underwriterID"])
+  advisorID: ID! @index(name: "byAdvisor")
+  preassessmentID: ID! @index(name: "byPreassessmentResponse", sortKeyFields: ["underwriterID"])
   underwriter: Underwriter! @hasOne(fields: ["underwriterID"])
   response: AWSJSON
   # This is only for a many-many connection:
@@ -173,13 +173,13 @@ type PreassessmentResponse @model {
 }
 
 type PreassessmentResponseUnderwriterAdvisor @model(queries: null) {
-  clientID: ID! @index(name: "byClientAndAdvisor", sortKeyFields: ["clientID", "preassessmentID", "advisorID"]) @index(name: "byId", sortKeyFields: ["clientID", "advisorID", "underwriterID", "preassessmentID"])
+  clientID: ID! @index(name: "byClientAndAdvisor", sortKeyFields: ["preassessmentID", "advisorID"]) @index(name: "byId", sortKeyFields: ["advisorID", "underwriterID", "preassessmentID"])
   client: Client! @hasOne(fields: ["clientID"])
-  advisorID: ID! @index(name: "byAdvisor", sortKeyFields: ["advisorID", "preassessmentID"])
+  advisorID: ID! @index(name: "byAdvisor", sortKeyFields: ["preassessmentID"])
   advisor: Advisor! @hasOne(fields: ["advisorID"])
-  underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["underwriterID", "preassessmentID"])
+  underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["preassessmentID"])
   underwriter: Underwriter! @hasOne(fields: ["underwriterID"]) 
-  preassessmentID: ID! @index(name: "byPreassessment", sortKeyFields: ["preassessmentID", "underwriterID"])
+  preassessmentID: ID! @index(name: "byPreassessment", sortKeyFields: ["underwriterID"])
   preassessment: Preassessment! @hasOne(fields: ["preassessmentID"])
   preasssessmentResponseID: ID!
   preassessmentResponse: PreassessmentResponse!
@@ -189,9 +189,9 @@ type PreassessmentResponseUnderwriterAdvisor @model(queries: null) {
 type PreassessmentUnderwriter @model(queries: null) {
   clientID: ID!
   advisorID: ID!
-  underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["underwriterID", "preassessmentID"])
+  underwriterID: ID! @index(name: "byUnderwriter", sortKeyFields: ["preassessmentID"])
   underwriter: Underwriter! @hasOne(fields: ["underwriterID"])
-  preassessmentID: ID! @index(name: "byPreassessment", sortKeyFields: ["preassessmentID", "underwriterID"])
+  preassessmentID: ID! @index(name: "byPreassessment", sortKeyFields: [ "underwriterID"])
   preassessment: Preassessment! @hasOne(fields: ["preassessmentID"])
 }
 
@@ -199,7 +199,7 @@ type Underwriter
   #@auth(rules: [{ allow: groups, groups: ["Admin"] }])
   @model {
   id: ID! @primaryKey
-  email: String! @index(name: "byEmail", sortKeyFields: ["email"])
+  email: String! @index(name: "byEmail")
   password: String
   firstName: String
   lastName: String
@@ -254,7 +254,7 @@ type Advisor @model @auth(rules: [{ allow: owner, ownerField: "id" }]) {
 }
 
 type AdvisorClient @model(queries: null) @auth(rules: [{ allow: owner, ownerField: "advisorID" }]) {
-  clientID: ID! @index(name: "byId", sortKeyFields: ["clientID", "advisorID"])
+  clientID: ID! @index(name: "byId", sortKeyFields: ["advisorID"])
   client: Client! @hasOne(fields: ["clientID"])
   advisorID: ID!
   advisor: Advisor! @hasOne(fields: ["advisorID"])
